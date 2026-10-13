@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initMenuFilters();
   initContactForm();
+  initInstantPrefetch();
 });
 
 // Modern Mobile Navigation Dropdown
@@ -307,3 +308,59 @@ function initContactForm() {
     form.reset();
   });
 }
+
+// Instant Link Prefetching & Fast Navigation Feedback
+function initInstantPrefetch() {
+  const pagesToPrefetch = ['index.html', 'menu.html', 'contact.html'];
+  const prefetched = new Set();
+
+  function prefetchUrl(url) {
+    if (!url || prefetched.has(url) || url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('tel:')) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    link.as = 'document';
+    document.head.appendChild(link);
+  }
+
+  // Prefetch other main pages during idle time
+  const scheduleIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 250));
+  scheduleIdle(() => {
+    pagesToPrefetch.forEach(page => {
+      const currentPath = window.location.pathname;
+      const isCurrent = currentPath.endsWith(page) || (page === 'index.html' && (currentPath.endsWith('/') || currentPath === ''));
+      if (!isCurrent) {
+        prefetchUrl(page);
+      }
+    });
+  });
+
+  // Touchstart & mouseenter prefetching for instant mobile response
+  function onLinkIntent(e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+      prefetchUrl(href);
+    }
+  }
+
+  document.addEventListener('mouseover', onLinkIntent, { passive: true });
+  document.addEventListener('touchstart', onLinkIntent, { passive: true });
+
+  // Navigation loading feedback
+  const progressBar = document.getElementById('pageProgressBar');
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !link.hasAttribute('target')) {
+      link.addEventListener('click', () => {
+        if (progressBar) {
+          progressBar.style.opacity = '1';
+          progressBar.style.width = '75%';
+        }
+      });
+    }
+  });
+}
+
