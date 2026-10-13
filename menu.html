@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Bakery Menu — Sweet Crumbs</title>
+  <meta name="description" content="Explore the artisanal menu of Sweet Crumbs. Freshly baked French croissants, 36-hour sourdough breads, gourmet cakes, cookies, and specialty coffee.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E27238'><path d='M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z'/><line x1='6' y1='17' x2='18' y2='17' stroke='%23FAF6F0' stroke-width='2'/></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <span>Morning Bakes Drop Fresh at 7:00 AM Daily</span>
+    <span>•</span>
+    <span>Orders above ₹500 get free artisanal cookies</span>
+    <span>•</span>
+    <span>Bandra West, Mumbai</span>
+  </div>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+            <line x1="6" y1="17" x2="18" y2="17"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Sweet Crumbs</span>
+          <span class="brand-subtitle">Artisanal Bakery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav & Mobile Menu Dropdown -->
+      <nav>
+        <ul class="nav-menu" id="primaryNav">
+          <li>
+            <a href="index.html" class="nav-link" id="navHome">
+              <svg class="nav-link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="menu.html" class="nav-link active" id="navMenu">
+              <svg class="nav-link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              <span>Menu</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link" id="navContact">
+              <svg class="nav-link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Contact & Timings</span>
+            </a>
+          </li>
+
+          <!-- Mobile Menu Footer CTA & Info -->
+          <li class="mobile-menu-footer">
+            <button class="btn-primary" style="width: 100%; justify-content: center;" data-open-order-modal>
+              <span>Order Now</span>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <div class="mobile-menu-info">
+              <div>Open 7:00 AM – 9:30 PM Daily</div>
+              <div>Heritage Square, Bandra West</div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header CTA & Cart -->
+      <div class="header-actions">
+        <button class="cart-btn" id="headerCartBtn" data-open-order-modal title="View Your Bakery Box" aria-label="Bakery Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-badge">2</span>
+        </button>
+        <button class="btn-primary header-desktop-order-btn" id="headerOrderBtn" data-open-order-modal>
+          <span>Order Now</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <svg class="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg class="close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Hero Header -->
+  <section class="menu-hero">
+    <div class="container">
+      <span class="section-tag">Oven-Fresh Every Day</span>
+      <h1 class="section-title">Handcrafted Bakery Menu</h1>
+      <p class="section-desc">
+        Each item is prepared from scratch using unbleached heirloom grains, pure butter, slow-fermented starters, and zero shortcuts.
+      </p>
+
+      <!-- Dietary Legend -->
+      <div class="dietary-legend" style="margin-top: 18px;">
+        <span class="diet-pill"><span class="dot-green"></span> 100% Vegetarian</span>
+        <span class="diet-pill"><span class="dot-orange"></span> Freshly Baked Today</span>
+        <span class="diet-pill">Eggless Options Available</span>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="menu-controls">
+        <div class="search-bar-wrap">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input type="text" class="search-input" id="menuSearchInput" placeholder="Search croissant, sourdough, chocolate cake...">
+        </div>
+
+        <div class="category-chips">
+          <button class="chip-btn active" data-category="all">All Items (10)</button>
+          <button class="chip-btn" data-category="pastries">Viennoiserie & Pastries</button>
+          <button class="chip-btn" data-category="breads">Artisan Breads</button>
+          <button class="chip-btn" data-category="cakes">Cakes & Tarts</button>
+          <button class="chip-btn" data-category="coffee">Specialty Drinks</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Items Grid (10 Items) -->
+  <main class="container">
+    <div class="menu-grid" id="menuItemsGrid">
+
+      <!-- Item 1: Classic Butter Croissant -->
+      <article class="bakery-card menu-item-card" data-category="pastries" id="menuItem1">
+        <div class="card-img-wrap">
+          <span class="card-badge gold">Bestseller</span>
+          <span class="card-diet-tag">Pure Butter</span>
+          <img src="assets/images/butter-croissant.jpg" alt="Golden flaky French Butter Croissant">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Viennoiserie</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.9 <small>(380)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Classic Butter Croissant</h2>
+          <p class="card-desc">
+            Twenty-seven delicate, paper-thin golden layers laminated with French cultured butter. Features a crisp exterior and an airy honeycomb crumb.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹160 <small>/ piece</small></div>
+            <button class="btn-add-cart" data-id="croissant" data-name="Classic Butter Croissant" data-price="160" data-img="assets/images/butter-croissant.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2: Rustic Country Sourdough -->
+      <article class="bakery-card menu-item-card" data-category="breads" id="menuItem2">
+        <div class="card-img-wrap">
+          <span class="card-badge">36h Ferment</span>
+          <span class="card-diet-tag">100% Vegan</span>
+          <img src="assets/images/artisan-sourdough.jpg" alt="Rustic sliced Country Sourdough Loaf">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Artisan Breads</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              5.0 <small>(240)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Rustic Country Sourdough</h2>
+          <p class="card-desc">
+            Naturally leavened with our seven-year-old starter. Features a dark, caramelized blistered crust with an open custard-like crumb and a subtle tang.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹280 <small>/ 750g loaf</small></div>
+            <button class="btn-add-cart" data-id="sourdough" data-name="Rustic Country Sourdough" data-price="280" data-img="assets/images/artisan-sourdough.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 3: Belgian Dark Chocolate Ganache -->
+      <article class="bakery-card menu-item-card" data-category="cakes" id="menuItem3">
+        <div class="card-img-wrap">
+          <span class="card-badge gold">Chef's Signature</span>
+          <span class="card-diet-tag">Eggless Option</span>
+          <img src="assets/images/chocolate-cake.jpg" alt="Belgian Dark Chocolate Ganache Cake Slice">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Cakes & Tarts</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.9 <small>(410)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Belgian Dark Chocolate Ganache</h2>
+          <p class="card-desc">
+            A rich layered sponge crafted from 70% single-origin Callebaut chocolate, wrapped in silky, glossy ganache and finished with flaky sea salt.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹340 <small>/ slice</small></div>
+            <button class="btn-add-cart" data-id="choco_cake" data-name="Belgian Dark Chocolate Ganache" data-price="340" data-img="assets/images/chocolate-cake.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 4: Cinnamon Cardamom Swirl Roll -->
+      <article class="bakery-card menu-item-card" data-category="pastries" id="menuItem4">
+        <div class="card-img-wrap">
+          <span class="card-badge">Spiced Brioche</span>
+          <span class="card-diet-tag">Vegetarian</span>
+          <img src="assets/images/cinnamon-roll.jpg" alt="Glazed Cinnamon Cardamom Roll">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Viennoiserie</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.8 <small>(195)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Cinnamon Cardamom Swirl Roll</h2>
+          <p class="card-desc">
+            Pillowy brioche dough swirled with aromatic Ceylon cinnamon and crushed green cardamom, topped with cream cheese frosting.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹190 <small>/ piece</small></div>
+            <button class="btn-add-cart" data-id="cinnamon_roll" data-name="Cinnamon Cardamom Swirl Roll" data-price="190" data-img="assets/images/cinnamon-roll.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 5: Fresh Berry Custard Tart -->
+      <article class="bakery-card menu-item-card" data-category="cakes" id="menuItem5">
+        <div class="card-img-wrap">
+          <span class="card-badge gold">Fresh Berry</span>
+          <span class="card-diet-tag">Vegetarian</span>
+          <img src="assets/images/berry-tart.jpg" alt="Fresh Berry Custard Tartlet">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Cakes & Tarts</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.9 <small>(230)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Fresh Berry Custard Tart</h2>
+          <p class="card-desc">
+            A golden sablé pastry shell filled with Madagascar vanilla bean diplomat cream, crowned with fresh strawberries and blueberries.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹240 <small>/ tartlet</small></div>
+            <button class="btn-add-cart" data-id="berry_tart" data-name="Fresh Berry Custard Tart" data-price="240" data-img="assets/images/berry-tart.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 6: Double Chocochip Sea Salt Cookies -->
+      <article class="bakery-card menu-item-card" data-category="cakes" id="menuItem6">
+        <div class="card-img-wrap">
+          <span class="card-badge">Soft-Baked</span>
+          <span class="card-diet-tag">Eggless Available</span>
+          <img src="assets/images/chocochip-cookies.jpg" alt="Chocochip Sea Salt Cookies">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Cakes & Tarts</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.8 <small>(510)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Double Chocochip Cookie</h2>
+          <p class="card-desc">
+            Features crisp, buttery edges with a gooey, molten chocolate center. Studded with 54% dark chocolate chips and dusted with flaky sea salt.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹140 <small>/ jumbo cookie</small></div>
+            <button class="btn-add-cart" data-id="cookie" data-name="Double Chocochip Cookie" data-price="140" data-img="assets/images/chocochip-cookies.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 7: Pistachio Almond Frangipane Croissant -->
+      <article class="bakery-card menu-item-card" data-category="pastries" id="menuItem7">
+        <div class="card-img-wrap">
+          <span class="card-badge">Twice Baked</span>
+          <span class="card-diet-tag">Pure Butter</span>
+          <img src="assets/images/almond-croissant.jpg" alt="Almond Frangipane Croissant">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Viennoiserie</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.9 <small>(170)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Almond Frangipane Croissant</h2>
+          <p class="card-desc">
+            A twice-baked croissant infused with vanilla syrup, filled with rich roasted almond cream and topped with toasted sliced almonds.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹220 <small>/ piece</small></div>
+            <button class="btn-add-cart" data-id="almond_croissant" data-name="Almond Frangipane Croissant" data-price="220" data-img="assets/images/almond-croissant.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 8: Rosemary & Sea Salt Olive Focaccia -->
+      <article class="bakery-card menu-item-card" data-category="breads" id="menuItem8">
+        <div class="card-img-wrap">
+          <span class="card-badge">Olive Oil & Herbs</span>
+          <span class="card-diet-tag">100% Vegan</span>
+          <img src="assets/images/artisan-focaccia.jpg" alt="Rosemary Olive Focaccia">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Artisan Breads</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.8 <small>(140)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Rosemary Olive Focaccia</h2>
+          <p class="card-desc">
+            A Ligurian-style focaccia steeped in extra virgin olive oil, dimpled with fragrant rosemary, sea salt flakes, and Kalamata olives.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹250 <small>/ slab (400g)</small></div>
+            <button class="btn-add-cart" data-id="focaccia" data-name="Rosemary Olive Focaccia" data-price="250" data-img="assets/images/artisan-focaccia.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 9: Caramelized Pecan Banana Loaf -->
+      <article class="bakery-card menu-item-card" data-category="breads" id="menuItem9">
+        <div class="card-img-wrap">
+          <span class="card-badge">Naturally Sweet</span>
+          <span class="card-diet-tag">Vegetarian</span>
+          <img src="assets/images/banana-bread.jpg" alt="Caramelized Banana Pecan Loaf slice">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Artisan Breads</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.7 <small>(160)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Banana Pecan Loaf</h2>
+          <p class="card-desc">
+            An ultra-moist tea loaf prepared with caramelized ripe bananas, dark demerara sugar, spiced nut butter, and crunchy toasted pecans.
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹180 <small>/ generous slice</small></div>
+            <button class="btn-add-cart" data-id="banana_bread" data-name="Banana Pecan Loaf" data-price="180" data-img="assets/images/banana-bread.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 10: Artisan Vanilla Caramel Macchiato -->
+      <article class="bakery-card menu-item-card" data-category="coffee" id="menuItem10">
+        <div class="card-img-wrap">
+          <span class="card-badge">Single-Origin</span>
+          <div class="card-diet-stack">
+            <span class="card-diet-tag tag-almond">Almond Milk Available</span>
+            <span class="card-diet-tag tag-oat">Oat Milk Available</span>
+          </div>
+          <img src="assets/images/coffee-macchiato.jpg" alt="Artisan Vanilla Caramel Macchiato with Caramel Drizzle">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category">Specialty Drinks</span>
+            <div class="card-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.9 <small>(320)</small>
+            </div>
+          </div>
+          <h2 class="card-title">Caramel Macchiato</h2>
+          <p class="card-desc">
+            Medium-dark roast Chikmagalur espresso pulled fresh over velvety textured milk, infused with Bourbon vanilla and finished with a handcrafted caramel drizzle. (Choice of whole milk, almond milk, or oat milk).
+          </p>
+          <div class="card-footer">
+            <div class="card-price">₹210 <small>/ 280ml cup</small></div>
+            <button class="btn-add-cart" data-id="macchiato" data-name="Caramel Macchiato" data-price="210" data-img="assets/images/coffee-macchiato.jpg">
+              <span>+ Add to Box</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+              <line x1="6" y1="17" x2="18" y2="17"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Sweet Crumbs</span>
+            <span class="brand-subtitle">Artisanal Bakery</span>
+          </div>
+        </div>
+        <p class="footer-brand-desc">
+          Rooted in tradition, crafted with patience. We bake comforting breads and decadent patisserie daily to make your everyday moments sweet.
+        </p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank" class="social-link instagram" title="Follow Sweet Crumbs on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" class="social-link facebook" title="Follow Sweet Crumbs on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/919820012345" target="_blank" class="social-link whatsapp" title="Chat with us on WhatsApp" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.031 0C5.394 0 0 5.394 0 12.031c0 2.124.555 4.195 1.609 6.015L.062 24l6.125-1.578a11.96 11.96 0 005.844 1.516h.005c6.632 0 12.026-5.394 12.026-12.031A12.007 12.007 0 0012.031 0zm0 21.906h-.004a9.92 9.92 0 01-5.066-1.39l-.363-.216-3.766.97.994-3.64-.236-.375a9.888 9.888 0 01-1.516-5.224c0-5.484 4.453-9.938 9.951-9.938a9.907 9.907 0 017.027 2.91 9.903 9.903 0 012.914 7.027c0 5.485-4.453 9.938-9.951 9.938zm5.457-7.445c-.299-.15-1.77-.874-2.045-.974-.274-.1-.473-.15-.672.15-.199.3-.772.974-.946 1.173-.175.2-.349.225-.648.075-.3-.15-1.266-.467-2.411-1.488-.891-.795-1.493-1.777-1.667-2.077-.174-.3-.019-.462.131-.611.135-.135.3-.349.449-.523.149-.175.199-.3.299-.5.1-.2.05-.374-.025-.524-.075-.15-.672-1.62-.921-2.219-.243-.583-.49-.504-.673-.513l-.573-.01c-.199 0-.523.075-.797.374s-1.046 1.022-1.046 2.493c0 1.471 1.071 2.892 1.221 3.092.15.199 2.107 3.218 5.105 4.512.713.309 1.27.493 1.704.631.717.228 1.369.196 1.884.119.575-.086 1.77-.723 2.019-1.42.249-.698.249-1.296.175-1.42-.075-.125-.274-.2-.573-.349z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home Page</a></li>
+          <li><a href="menu.html" class="footer-link">Full Bakery Menu</a></li>
+          <li><a href="contact.html" class="footer-link">Contact & Location</a></li>
+          <li><a href="contact.html#hoursSection" class="footer-link">Store Timings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Dietary Notes</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">100% Eggless Cakes List</a></li>
+          <li><a href="#" class="footer-link">Vegan Sourdough Breads</a></li>
+          <li><a href="#" class="footer-link">Gluten-Friendly Macarons</a></li>
+          <li><a href="#" class="footer-link">Nut Allergy Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <h4 class="footer-col-title">Join The Crumbs Club</h4>
+        <p>Get exclusive weekend specials and 10% off your first delivery.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Welcome to The Crumbs Club! Enjoy 10% off with code CRUMBS10');">
+          <input type="email" placeholder="Your email address" required class="newsletter-input">
+          <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© 2026 Sweet Crumbs Bakery. All rights reserved. Handcrafted with care.</div>
+      <div>Shop 14, Heritage Square, Bandra West, Mumbai • Open 7:00 AM – 9:30 PM</div>
+    </div>
+  </footer>
+
+  <!-- Quick Order / Cart Modal -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <h3 class="modal-title">Your Bakery Box</h3>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close Order Modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="order-items-list">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <div class="modal-summary">
+          <span class="modal-total-title">Total Amount:</span>
+          <span class="modal-total-val">₹600</span>
+        </div>
+
+        <div style="background: var(--bg-cream); border: 1px dashed var(--border-warm); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 8px;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-brown); margin-bottom: 4px;">Express Bakery Pickup / Delivery:</div>
+          <div style="font-size: 0.8rem; color: var(--color-text-muted);">Freshly packed in warm, biodegradable boxes within 25 minutes.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" style="flex: 1;" data-close-modal>Keep Browsing</button>
+        <button class="btn-primary" style="flex: 1.5; justify-content: center;" id="confirmOrderBtn">Place Bakery Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/919820012345?text=Hi%20Sweet%20Crumbs!%20I%20would%20like%20to%20place%20an%20order." target="_blank" class="floating-contact-btn" title="Chat with Bakery on WhatsApp" aria-label="WhatsApp Support">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.031 0C5.394 0 0 5.394 0 12.031c0 2.124.555 4.195 1.609 6.015L.062 24l6.125-1.578a11.96 11.96 0 005.844 1.516h.005c6.632 0 12.026-5.394 12.026-12.031A12.007 12.007 0 0012.031 0zm0 21.906h-.004a9.92 9.92 0 01-5.066-1.39l-.363-.216-3.766.97.994-3.64-.236-.375a9.888 9.888 0 01-1.516-5.224c0-5.484 4.453-9.938 9.951-9.938a9.907 9.907 0 017.027 2.91 9.903 9.903 0 012.914 7.027c0 5.485-4.453 9.938-9.951 9.938zm5.457-7.445c-.299-.15-1.77-.874-2.045-.974-.274-.1-.473-.15-.672.15-.199.3-.772.974-.946 1.173-.175.2-.349.225-.648.075-.3-.15-1.266-.467-2.411-1.488-.891-.795-1.493-1.777-1.667-2.077-.174-.3-.019-.462.131-.611.135-.135.3-.349.449-.523.149-.175.199-.3.299-.5.1-.2.05-.374-.025-.524-.075-.15-.672-1.62-.921-2.219-.243-.583-.49-.504-.673-.513l-.573-.01c-.199 0-.523.075-.797.374s-1.046 1.022-1.046 2.493c0 1.471 1.071 2.892 1.221 3.092.15.199 2.107 3.218 5.105 4.512.713.309 1.27.493 1.704.631.717.228 1.369.196 1.884.119.575-.086 1.77-.723 2.019-1.42.249-.698.249-1.296.175-1.42-.075-.125-.274-.2-.573-.349z"/>
+    </svg>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

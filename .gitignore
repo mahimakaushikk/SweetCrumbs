@@ -1,0 +1,6 @@
+# Binaries & Temporary files
+cloudflared.exe
+live_url.txt
+__pycache__/
+*.log
+.DS_Store
